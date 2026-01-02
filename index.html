@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Void: Chrono Strike</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- CRT Overlay -->
+        <div class="scanlines"></div>
+
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <div id="hud-top">
+                <div id="score-display">
+                    <span class="label">SCORE</span>
+                    <span class="value" id="score-val">0</span>
+                </div>
+                <div id="health-display">
+                    <span class="label">INTEGRITY</span>
+                    <div class="health-bar-bg">
+                        <div id="health-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="time-energy-container">
+                <span class="label">CHRONO ENERGY</span>
+                <div id="time-energy-bar-bg">
+                    <div id="time-energy-bar"></div>
+                </div>
+            </div>
+
+            <!-- Warning Display -->
+            <div id="warning-display" class="hidden"></div>
+
+            <!-- Screens -->
+            <div id="start-screen" class="screen active">
+                <div class="title-container">
+                    <h1>NEON VOID</h1>
+                    <h2 class="subtitle">CHRONO STRIKE</h2>
+                </div>
+
+                <div class="menu-content">
+                    <div class="instructions-panel">
+                        <h3>MISSION PROTOCOLS</h3>
+                        <div class="instruction-row">
+                            <span class="key-icon">W</span><span class="key-icon">A</span><span
+                                class="key-icon">S</span><span class="key-icon">D</span>
+                            <span class="instruction-text">THRUST VECTORING</span>
+                        </div>
+                        <div class="instruction-row">
+                            <span class="mouse-icon">󰍽</span>
+                            <span class="instruction-text">AIM & FIRE</span>
+                        </div>
+                        <div class="instruction-row">
+                            <span class="key-icon wide">SHIFT</span>
+                            <span class="instruction-text highlight">CHRONO FREEZE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-area">
+                    <button id="start-btn" class="neon-btn">INITIALIZE SYSTEM</button>
+                    <p class="blink">PRESS BUTTON TO START</p>
+                </div>
+                <div class="credits">MADE BY SHUBHAM BALWAN</div>
+
+                <!-- Dev Message Trigger -->
+                <div id="dev-msg-trigger">
+                    <div class="msg-tooltip">msg from the developer!!</div>
+                    <div class="trigger-row">
+                        <a href="https://www.linkedin.com/in/shubham-balwan" target="_blank" id="linkedin-btn"
+                            class="neon-btn small">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                                height="24">
+                                <path
+                                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h5v-8.306c0-4.613 6.115-4.966 6.115 0v8.306h5v-10.375c0-6.148-7.98-5.968-11.147-2.924v-2.701z" />
+                            </svg>
+                        </a>
+                        <button id="dev-msg-btn" class="neon-btn small">?</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dev-msg-panel" class="screen hidden">
+                <div class="panel-content">
+                    <h2>TRANSMISSION INCOMING</h2>
+                    <!-- <p>Neon Void: Chrono Strike, is a neon themed space shooter game.</p> -->
+                    <p>There is nothing to tell much about the game, being a solo developer this was the best I could
+                        do.</p>
+                    <p>If there are any issues or bugs, please report them to me I would surely try to solve them. Agar
+                        bugs resolve hue toh game is bugfree and nahi hue toh those are features. I hope you understand.
+                    </p>
+                    <p>- Shubham Balwan</p>
+                    <button id="close-msg-btn" class="neon-btn">CLOSE TRANSMISSION</button>
+                </div>
+            </div>
+
+            <div id="pause-screen" class="screen hidden">
+                <div class="pause-menu-panel">
+                    <h1>SYSTEM PAUSED</h1>
+                    <div class="mission-status">
+                        <p>CURRENT SCORE: <span id="pause-score">0</span></p>
+                    </div>
+                    <div class="action-area">
+                        <button id="resume-btn" class="neon-btn">RESUME</button>
+                        <button id="quit-btn" class="neon-btn warning">ABORT MISSION</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <div class="game-over-panel">
+                    <h1>MISSION FAILED</h1>
+                    <div class="final-score-display">
+                        FINAL SCORE: <span id="final-score">0</span>
+                    </div>
+                    <button id="restart-btn" class="neon-btn warning">RETRY MISSION</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
