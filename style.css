@@ -145,7 +145,7 @@ canvas {
 }
 
 .mouse-icon {
-    font-size: 0.5rem;
+    font-size: 20px;
 }
 
 .instruction-text {
@@ -725,3 +725,4 @@ canvas {
     margin-bottom: 15px;
 
 }
+
